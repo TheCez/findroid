@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.androidx.navigation.safeargs)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
 
@@ -56,10 +57,10 @@ dependencies {
     implementation(libs.androidx.paging)
     implementation(libs.androidx.preference)
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
+    ksp(libs.glide.ksp)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     implementation(libs.jellyfin.core)

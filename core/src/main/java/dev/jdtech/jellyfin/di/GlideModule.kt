@@ -2,6 +2,7 @@ package dev.jdtech.jellyfin.di
 
 import android.content.Context
 import androidx.preference.PreferenceManager
+import com.bumptech.glide.Glide
 import com.bumptech.glide.GlideBuilder
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.load.engine.DiskCacheStrategy.NONE
@@ -32,7 +33,7 @@ class GlideModule : AppGlideModule() {
             Timber.d("Image cache disabled. Clearing all persisted data.")
 
             MainScope().launch {
-                GlideApp.getPhotoCacheDir(context)?.also {
+                Glide.getPhotoCacheDir(context)?.also {
                     if (it.exists()) it.deleteRecursively()
                 }
             }

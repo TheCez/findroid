@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.parcelize)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
 
@@ -47,7 +47,7 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.preference)
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     implementation(libs.jellyfin.core)
     implementation(libs.timber)
