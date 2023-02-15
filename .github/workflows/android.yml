@@ -45,10 +45,10 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: "30.0.2"
           
-      - uses: jungwinter/split@v1
+      - uses: jungwinter/split@v2
         id: signed_files
         with:
-          msg: ${{ steps.sign_app.outputs.signedReleaseFiles }}
+          msg: ${{steps.sign_app.signedReleaseFiles}}
           separator: ':'
 
       - name: Upload release APK
