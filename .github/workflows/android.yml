@@ -58,5 +58,5 @@ jobs:
         uses: MicahSphelele/action-publish-signed-apk@main
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          APP_FOLDER: app
+          APP_FOLDER: app/phone
           FILE_DIR: ${{steps.sign_app.outputs.signedReleaseFile}}
