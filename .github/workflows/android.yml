@@ -53,10 +53,20 @@ jobs:
 
       - name: Echo APK
         run: echo Signed APK FILE ${{steps.sign_app.outputs.signedReleaseFile}}
-
+        
       - name: Release signed APK
-        uses: MicahSphelele/action-publish-signed-apk@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          APP_FOLDER: app/phone
-          FILE_DIR: ${{steps.sign_app.outputs.signedReleaseFile}}
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+            repo_token: "${{ secrets.TOKEN }}"
+            automatic_release_tag: "latest"
+            prerelease: true
+            title: "Release X"
+            files: |
+              ${{steps.sign_app.outputs.signedReleaseFile}}
+
+#       - name: Release signed APK
+#         uses: MicahSphelele/action-publish-signed-apk@main
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+#           APP_FOLDER: app/phone
+#           FILE_DIR: ${{steps.sign_app.outputs.signedReleaseFile}}
